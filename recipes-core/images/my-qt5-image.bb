@@ -1,5 +1,10 @@
 inherit core-image
 
+#cmake, qmake, lkm sdk opts
+#inherit populate_sdk_qt5
+#TOOLCHAIN_HOST_TASK += "nativesdk-cmake"
+#TOOLCHAIN_TARGET_TASK += "kernel-devsrc"
+
 MY_TOOLS = " \
     qtbase \
     qtbase-dev \
@@ -28,6 +33,7 @@ MY_PKGS = " \
 MY_FEATURES = " \
     i2c-tools \
     qt5everywheredemo \
+    evtest \
 "
 DISTRO_FEATURES:append = " bluez5 bluetooth wifi"
 
