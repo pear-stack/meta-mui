@@ -1,42 +1,24 @@
 inherit core-image
 
-#cmake, qmake, lkm sdk opts
-#inherit populate_sdk_qt5
-#TOOLCHAIN_HOST_TASK += "nativesdk-cmake"
+#sdk opts
+#TOOLCHAIN_HOST_TASK:append = " nativesdk-slint-cpp"
+#TOOLCHAIN_HOST_TASK:append = " nativesdk-cmake"
+#CLANGSDK = "1"
 #TOOLCHAIN_TARGET_TASK += "kernel-devsrc"
 
-MY_TOOLS = " \
-    qtbase \
-    qtbase-dev \
-    qtbase-mkspecs \
-    qtbase-plugins \
-    qtbase-tools \
+UI = " \
+    slint-cpp \
+    slint-hello-world \
+    noto-fonts \
+    libudev \
+    mesa-megadriver \
+    libgles2-mesa \
+    libegl-mesa \
+    libgbm \
 "
 
-MY_PKGS = " \
-    qt3d \
-    qt3d-dev \
-    qt3d-mkspecs \
-    qtimageformats \
-    qtmultimedia \
-    qtquickcontrols \
-    qtcharts \
-    qtcharts-dev \
-    qtcharts-mkspecs \
-    qtconnectivity-dev \
-    qtconnectivity-mkspecs \
-    qtquickcontrols2 \
-    qtquickcontrols2-dev \
-    qtquickcontrols2-mkspecs \
-    qtdeclarative \
-    qtdeclarative-dev \
-    qtdeclarative-mkspecs \
-    qtgraphicaleffects \
-    qtgraphicaleffects-dev \
-"
-MY_FEATURES = " \
+TOOLS = " \
     i2c-tools \
-    qt5everywheredemo \
     evtest \
     beep \
     raspi-gpio \
@@ -44,7 +26,6 @@ MY_FEATURES = " \
 DISTRO_FEATURES:append = " bluez5 bluetooth wifi"
 
 IMAGE_INSTALL:append = " \
-    ${MY_TOOLS} \
-    ${MY_PKGS} \
-    ${MY_FEATURES} \
+    ${UI} \
+    ${TOOLS} \
 "
