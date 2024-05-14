@@ -9,6 +9,7 @@ TOOLS = " \
     evtest \
     beep \
     raspi-gpio \
+    gmp \
 "
 DISTRO_FEATURES:append = " bluez5 bluetooth wifi"
 
